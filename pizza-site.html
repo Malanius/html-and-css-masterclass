@@ -24,11 +24,6 @@
         <img src="images/just-opened.png" alt="just opened" style="height: 200px;width: 500px;" />
     </div>
 
-    <style>
-        .nav-item {
-            margin-right: 10%
-        }
-    </style>
     <nav id="header" style="font-size: 2vw; position: relative;top: 25%;width: 100%;left: 20%;">
         <a href="#/home" class="nav-item" onclick="showPageSection('home')">Home</a>
         <a href="#/menu" class="nav-item" onclick="showPageSection('menu')">Menu</a>
@@ -58,7 +53,56 @@
         </div>
     </div>
 
-    <div id="menu"></div>
+    <div id="menu" style="visibility: hidden;top: 400px;left: 15px; position: absolute;width: 70%;height: 20%;">
+        <h1 style="text-align: center;width: 100%;color: white">Menu</h1>
+        <div class="row">
+            <div class="card text-center">
+                <img class="card-img-top" src="images/pizza/slice1.png" alt="card image" />
+                <div class="card-body">
+                    <h2 id="cheese" class="card-title">Cheese</h2>
+                    <h4 class="card-text">Regural slice with sauce and cheese</h4>
+                    <a id="cheese-price" href="#" class="btn btn-primary"
+                        onclick="onItemClick('cheese', 'cheese-price')">$3.00</a>
+                </div>
+            </div>
+            <div class="card text-center">
+                <img class="card-img-top" src="images/pizza/slice2.png" alt="card image" />
+                <div class="card-body">
+                    <h2 id="pepperoni" class="card-title">Pepperoni</h2>
+                    <h4 class="card-text">Pizza with pepperoni topping</h4>
+                    <a id="pepperoni-price" href="#" class="btn btn-primary"
+                        onclick="onItemClick('pepperoni', 'pepperoni-price')">$4.00</a>
+                </div>
+            </div>
+            <div class="card text-center">
+                <img class="card-img-top" src="images/pizza/slice3.png" alt="card image" />
+                <div class="card-body">
+                    <h2 id="mushroom" class="card-title">Mushroom</h2>
+                    <h4 class="card-text">Pizza with mushroom topping</h4>
+                    <a id="mushroom-price" href="#" class="btn btn-primary"
+                        onclick="onItemClick('mushroom', 'mushroom-price')">$3.50</a>
+                </div>
+            </div>
+            <div class="card text-center">
+                <img class="card-img-top" src="images/pizza/slice4.png" alt="card image" />
+                <div class="card-body">
+                    <h2 id="veggie" class="card-title">Veggie</h2>
+                    <h4 class="card-text">Pizza with veggie topping</h4>
+                    <a id="veggie-price" href="#" class="btn btn-primary"
+                        onclick="onItemClick('veggie', 'veggie-price')">$3.70</a>
+                </div>
+            </div>
+            <div class="card text-center">
+                <img class="card-img-top" src="images/pizza/slice5.png" alt="card image" />
+                <div class="card-body">
+                    <h2 id="bbq" class="card-title">BBQ</h2>
+                    <h4 class="card-text">Regural with chicken and BBQ sauce</h4>
+                    <a id="bbq-price" href="#" class="btn btn-primary"
+                        onclick="onItemClick('bbq', 'bbq-price')">$5.20</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div id="about" style="font-size: 2vw;visibility: hidden;top: 400px;position: absolute;">
         <h1 style="left: 80%;position: relative;color: white">About Us</h1>
@@ -81,6 +125,34 @@
 
     <div id="contact"></div>
 
+
+    <style>
+        .nav-item {
+            margin-right: 10%
+        }
+
+        .card {
+            width: 20%;
+            height: 500px;
+            background-color: transparent;
+        }
+
+        .card-img-top {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .card-title,
+        .card-text {
+            color: white;
+        }
+
+        .btn {
+            width: 80%;
+        }
+    </style>
+
     <script>
         function showPageSection(showId) {
             let listOfIds = ['home', 'menu', 'about', 'contact'];
@@ -91,6 +163,13 @@
                     document.getElementById(id).style.visibility = 'hidden';
                 }
             })
+        }
+
+        function onItemClick(itemId, amountId) {
+            const item = document.getElementById(itemId).innerHTML;
+            const amount = document.getElementById(amountId).innerHTML;
+            const message = `Item: ${item} pizza \nPrice: ${amount}`
+            alert(message);
         }
     </script>
 </body>
